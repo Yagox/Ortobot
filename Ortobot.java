@@ -10,7 +10,7 @@ import robocode.util.Utils;
 
 
 /**
- * @author      Yago F.R. <yago1987@gmail.com>
+ * @author      Yago F.R.
  * @version     1.0
  * @objetive 	Robot creado para el aprendizaje y diversion de Robocode, se basa en escanear un robot,
  * 				situarse en una esquina y trazar cuadrados de movimiento en ella, movimiento en angulos rectos (ortogonal).
@@ -34,12 +34,12 @@ public class Ortobot extends AdvancedRobot {
 	private boolean victoria = false; //Variable que indica si hemos ganado o no la ronda.
 	
 	/**
-	 * Método donde se inicialia el robot y se ejecuta el giro continuo del radar.
+	 * MÃ©todo donde se inicialia el robot y se ejecuta el giro continuo del radar.
 	 */
 	@Override
 	public void run() {
-		setColors(Color.BLACK, Color.RED, Color.RED, Color.YELLOW, Color.GREEN); //Seleccionar el color del tanke (cuerpo, cañon, bala, radar, arco).
-		setAdjustGunForRobotTurn(true); //Configuracion para que el cañon gire independientemente del cuerpo.
+		setColors(Color.BLACK, Color.RED, Color.RED, Color.YELLOW, Color.GREEN); //Seleccionar el color del tanke (cuerpo, caÃ±on, bala, radar, arco).
+		setAdjustGunForRobotTurn(true); //Configuracion para que el caÃ±on gire independientemente del cuerpo.
 		setAdjustRadarForGunTurn(true); //Configuracion para que el radar gire independientemente del cuerpo.
 		
 		while (true) { //Bucle infinito para fijar blanco con el radar, no para de mover el radar para mantener el objetivo fijado.
@@ -58,7 +58,7 @@ public class Ortobot extends AdvancedRobot {
 	}
 
 	/**
-	 * Método actuador cuando se recibe un balazo.
+	 * MÃ©todo actuador cuando se recibe un balazo.
 	 */	
 	@Override
 	public void onHitByBullet(HitByBulletEvent e) {
@@ -66,7 +66,7 @@ public class Ortobot extends AdvancedRobot {
 	}
 
 	/**
-	 * Método actuador cuando se detecta un robot.
+	 * MÃ©todo actuador cuando se detecta un robot.
 	 */	
 	@Override
 	public void onScannedRobot(ScannedRobotEvent e) {
@@ -79,7 +79,7 @@ public class Ortobot extends AdvancedRobot {
 				
 				
 				if (movimiento) { //Si tenemos movimiento o estabamos haciendolo.
-					setTurnLeft(giro); //Giramos a la izquierdael cuerpo 90º.
+					setTurnLeft(giro); //Giramos a la izquierdael cuerpo 90Âº.
 					movimiento = false; //Paramos el movimiento.
 				} else { //Si no tenemos movimiento o no nos tocaba mover.
 					setAhead(tamMovimiento * direccion); //Mover * direccion para indicar el sentido.
@@ -90,10 +90,10 @@ public class Ortobot extends AdvancedRobot {
 			} else { //Si no estamos en una esquina.
 
 				//Algoritmia para realizar el movimiento cuadrado.
-				//Arriba 0º
-				//Derecha 90º
-				//Izquierda 270º
-				//Abajo 180º
+				//Arriba 0Âº
+				//Derecha 90Âº
+				//Izquierda 270Âº
+				//Abajo 180Âº
 				
 	
 				
@@ -187,14 +187,14 @@ public class Ortobot extends AdvancedRobot {
 
 
 			//Si algun enemigo nos dispara, con un 25% de probabilidad cambiaremos la direccion del cuerpo.
-			//Detectamos que dispara al cambiarle la energia, ya que puede ser que haya disparado o recibido daño.
+			//Detectamos que dispara al cambiarle la energia, ya que puede ser que haya disparado o recibido daÃ±o.
 			if ((energiaObjAnt < (energiaObjAnt = (short) e.getEnergy())) && Math.random() > .75) {
 				direccion = (direccion * -1); //Cambiamos la direccion, inversa de la que tuviesemos.
 			}
 
 			
 			setTurnGunRightRadians(Utils.normalRelativeAngle(
-					(e.getBearingRadians() + getHeadingRadians()) - getGunHeadingRadians())); //Movemos el cañon hacia el objetivo.
+					(e.getBearingRadians() + getHeadingRadians()) - getGunHeadingRadians())); //Movemos el caÃ±on hacia el objetivo.
 			
 			
 			if (e.getDistance() < distanciaMinima) { //Si el objetivo esta mas cerca de una distancia minima.
@@ -211,12 +211,12 @@ public class Ortobot extends AdvancedRobot {
 			setTurnRadarRightRadians(2 * Utils.normalRelativeAngle(radarTurn)); 
 			
 		} else if (objetivo != null) { //Si no tenemos objetivo enfocado.
-			contador++; //Añadimos una unidad al contador para saber si actuar o no.
+			contador++; //AÃ±adimos una unidad al contador para saber si actuar o no.
 		}
 	}//Fin de onScannedRobot.
 	
 	/**
-	 * Método para hacer el baile de la victoria.
+	 * MÃ©todo para hacer el baile de la victoria.
 	 */
 	public void onWin(WinEvent e) {
 		victoria = true;
