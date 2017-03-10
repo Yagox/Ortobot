@@ -47,12 +47,13 @@ public class Ortobot extends AdvancedRobot {
 			turnRadarRightRadians(1); //Gira continuamente el radar a la iquierda.
 			}else{
 				//Baile de la victoria.
-				for (int i = 0; i < 50; i++) {
-					setAhead(50);
-					setTurnGunRight(50);
-					setBack(50);
-					setTurnGunLeft(50);
+				for (int i = 0; i < 10; i++) {
+					setAhead(20);
+					setTurnGunRight(20);
+					setBack(20);
+					setTurnGunLeft(20);
 				}
+				 victoria = false;
 			}
 		}
 	}
